@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>台東大學校園公告</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/Bootstrap.css">
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.simpledialog.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.0.min.js"></script>
+		<script src="js/jquery.mobile.simpledialog2.min.js"></script>
+		<script src="js/app.js"></script>
+	</head>
+	<body>
+		<div id="my-page" data-role="page" data-theme="a">
+			<div data-role="header" data-position="inline">
+				<a href="#menu-panel" data-icon="bars" data-iconpos="notext">其他公告</a>
+				<h1>校園公告</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a id="top_news" href="#" data-icon="arrow-r" class="ui-btn-active">置頂公告</a></li>
+						<li><a id="activity_news" href="#" data-icon="arrow-r">校園活動看板</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content" data-theme="a">
+				<ul id="news-list" data-role="listview" data-inset="true"></ul>
+				<div data-role="panel" id="menu-panel" data-display="overlay" data-position="left" data-theme="a">
+					<ul data-role="listview">
+						<li data-role="collapsible" data-inset="false" data-iconpos="right" data-theme="d">
+							<h3>公告種類</h3>
+							<ul data-role="listview" data-theme="a">
+								<li><a id="admin_news" href="#">行政公告</a></li>
+								<li><a id="academy_news" href="#">學術公告</a></li>
+								<li><a id="hiring_news" href="#">徵人啟事</a></li>
+								<li><a id="released_news" href="#">招生放榜</a></li>
+								<li><a id="enews" href="#">東大新聞</a></li>
+							</ul>
+						</li>
+						<li data-role="list-divider" data-theme="d">訂閱RSS</li>
+						<li><a id="rss_feed" href="#rss-dialog" data-icon="arrow-r" data-rel="popup">訂閱RSS</a></li>
+						<li data-role="list-divider" data-theme="d">搜尋公告</li>
+						<li><a id="search_record" href="#" data-icon="arrow-r">搜尋公告</a></li>
+					</ul>
+				</div><!-- /panel -->
+			</div>
+		</div>
+		<!-- the popup markup -->
+		<div id="rss-dialog" style="display:none">   
+			<h3>請點擊想要的RSS(顯示一個禮拜以內最新的文章)</h3>
+			<ul data-role="listview" data-theme="d">
+				<li><a id="top_news_rss" href="/nttunews/rss/top_news" data-ajax="false" target="_blank" data-icon="arrow-r">置頂公告</a></li>
+				<li><a id="activity_news_rss" href="/nttunews/rss/activity_news" data-ajax="false" target="_blank" data-icon="arrow-r">校園活動看板</a></li>
+				<li><a id="admin_news_rss" href="/nttunews/rss/admin_news" data-ajax="false" target="_blank" data-icon="arrow-r">行政公告</a></li>
+				<li><a id="academy_news_rss" href="/nttunews/rss/academy_news" data-ajax="false" target="_blank" data-icon="arrow-r">學術公告</a></li>
+				<li><a id="hiring_news_rss" href="/nttunews/rss/hiring_news" data-ajax="false" target="_blank" data-icon="arrow-r">徵人啟事</a></li>
+				<li><a id="released_news_rss" href="/nttunews/rss/released_news" data-ajax="false" target="_blank" data-icon="arrow-r">招生放榜</a></li>
+				<li><a id="enews_rss" href="/nttunews/rss/enews" data-ajax="false" target="_blank" data-icon="arrow-r">東大新聞</a></li>
+			</ul>
+			<button id="dialogSubmit" data-theme="c" rel="close">離開</button>
+		</div>
+	</body>	
+</html>

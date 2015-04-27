@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>連結帳戶</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../css/Bootstrap.css">
+		<link rel="stylesheet" href="../css/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="../css/jquery.mobile.structure-1.4.5.min.css" />
+		<link rel="stylesheet" href="../css/custom-jqm.css">
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="../js/app.js"></script>
+	</head>
+	<body>
+		<div data-role="page" class="custom-content" data-position="fixed" data-theme="b">
+			<div data-role="header">
+				<a href="../index.html" data-ajax="false" data-role="button" data-icon="home">返回首頁</a>
+				<h1>連結帳戶</h1>
+			</div>
+			<div role="main" class="ui-content jqm-content">
+				<h2 class="my-deep-green">請輸入網路學園帳戶，以取得授權</h2>
+				<form id="register-form">
+					<div data-role="fieldcontain">
+						<label for="account">請輸入網路學園帳號:</label>
+							<input id="account" type="text">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="password">請輸入網路學園密碼:</label>
+							<input id="password">
+					</div>	
+					<div class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+							<div class="ui-block-a"><button type="button" data-theme="d">送出</button></div>
+							<div class="ui-block-b"><button type="button" data-theme="a">取消</button></div>
+					    </fieldset>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>	
+</html>
