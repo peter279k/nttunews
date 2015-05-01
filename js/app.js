@@ -8,7 +8,6 @@ $(function(){
 	$("#hiring_news").click(function(){get_news('hiring_news');});
 	$("#released_news").click(function(){get_news('released_news');});
 	$("#enews").click(function(){get_news('enews');});
-	
 	//$("#search_record").click(function(){rss_feed});
 	
 	//$("#rss_feed").click(function(){});
@@ -16,7 +15,7 @@ $(function(){
 	$("#rss_feed").click(function() {
         $('#rss-dialog').simpledialog2({
             mode: "blank",
-            headerText: "Select Item(s)",
+            headerText: "訂閱RSS",
             headerClose: false,
             blankContent: true,
             themeDialog: 'd',
@@ -30,6 +29,12 @@ $(function(){
 });
 
 function get_news(category) {
+	$.mobile.loading( "show", {
+		text: "請稍後...",
+		textVisible: true,
+		theme: "a",
+		html: ""
+	});
 	$("#news-list").html('');
 	$.get("/nttunews/news/"+category,function(response) {
 		res = JSON.parse(response);
@@ -45,6 +50,7 @@ function get_news(category) {
 		$("#news-list").append(res_str);
 		$("#news-list").listview('refresh');
 		$( "#menu-panel" ).panel( "close" );
+		$.mobile.loading( "hide" );
 		if(category=="top_news" || category=="activity_news")
 			return;
 		else

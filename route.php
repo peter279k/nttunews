@@ -7,7 +7,10 @@
 	//http get all categories of news
 	$app -> get('/news/:table_name', 'get_news_content'); //取得其中一個種類所有公告
 	$app -> get('/news/:table_name/:publish_date', 'get_assign_news'); //取得其中一個種類的指定日期所有公告
-	$app -> get('/rss/:table_name', 'rss_service'); //取得其中一個種類RSS
+	$app -> get('/rss/:table_name', function ($table_name) use ($app) {
+		set_headers($app);
+		rss_service($table_name);
+	}); //取得其中一個種類RSS
 	$app -> run();
 	
 	/*
@@ -125,8 +128,13 @@
 			$rssfeed .= '</channel>';
 			$rssfeed .= '</rss>';
 			$xml = new SimpleXMLElement($rssfeed);
-			echo '<pre>'.htmlspecialchars($xml->asXML()).'</pre>';
+			echo $xml->asXML();
 		}
+	}
+	
+	function set_headers($app) 
+	{
+		$app->response->headers->set("Content-Type",'application/xml');
 	}
 	
 	function check_date($chk_date)
