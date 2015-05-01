@@ -25,6 +25,31 @@ $(function(){
 		
 		$( "#menu-panel" ).panel( "close" );
     });
+    
+	$("#search_record").click(function() {
+        $('#search-dialog').simpledialog2({
+            mode: "blank",
+            headerText: "搜尋公告",
+            headerClose: false,
+            blankContent: true,
+            themeDialog: 'd',
+            width: '75%',
+            zindex: 1000
+        });
+		
+		$( "#menu-panel" ).panel( "close" );
+    });
+    
+    $("#select-all-news").click(function() {
+		if($("#select-all-news").attr('checked'))
+			$("input[name='search_box[]']").each(function() {
+				$(this).attr("checked", true);
+			});
+		else
+			$("input[name='search_box[]']").each(function() {
+				$(this).attr("checked", false);
+			});
+	})
 	
 });
 

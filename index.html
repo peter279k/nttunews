@@ -44,7 +44,7 @@
 						<li data-role="list-divider" data-theme="d">訂閱RSS</li>
 						<li><a id="rss_feed" href="#rss-dialog" data-icon="arrow-r" data-rel="popup">訂閱RSS</a></li>
 						<li data-role="list-divider" data-theme="d">搜尋公告</li>
-						<li><a id="search_record" href="#" data-icon="arrow-r">搜尋公告</a></li>
+						<li><a id="search_record" href="#search-dialog" data-icon="arrow-r" data-rel="popup">搜尋公告</a></li>
 					</ul>
 				</div><!-- /panel -->
 			</div>
@@ -62,6 +62,32 @@
 				<li><a id="enews_rss" href="/nttunews/rss/enews" data-ajax="false" target="_blank">東大新聞</a></li>
 			</ul>
 			<button id="dialogSubmit" data-theme="c" rel="close">離開</button>
+		</div>
+		<div id="search-dialog" style="display:none">
+			<h3>請勾選搜尋公告種類</h3>
+			<fieldset id="search-controlgroup" data-role="controlgroup" >
+				<label for="select-all-news">全選</label>
+				<input type="checkbox" id="select-all-news" />
+				<label for="top-news">置頂公告</label>
+				<input type="checkbox" id="top-news" name="search_box[]" value="top_news" />
+				<label for="activity-news">校園活動看板</label>
+				<input type="checkbox" id="activity-news" name="search_box[]" value="activity_news" />
+				<label for="admin-news">行政公告</label>
+				<input type="checkbox" id="admin-news" name="search_box[]" value="admin_news" />
+				<label for="academy-news">學術公告</label>
+				<input type="checkbox" id="academy-news" name="search_box[]" value="academy_news" />
+				<label for="hiring-news">徵人啟事</label>
+				<input type="checkbox" id="released-news" name="search_box[]" value="released_news" />
+				<label for="released-news">招生放榜</label>
+				<input type="checkbox" id="enews" name="search_box[]" value="enews" />
+				<label for="enews">東大新聞</label>
+			</fieldset>
+			<!--選擇日期-->
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><button id="news-search" data-theme="d">搜尋</button></div>
+				<div class="ui-block-b"><button id="cancel" rel="close" data-theme="c">取消</button></div>
+			</div>
+		</div>
 		</div>
 	</body>	
 </html>
