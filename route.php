@@ -118,6 +118,12 @@
 			
 			while($res=$stmt->fetch())
 			{
+				if(stristr($res["link"],'?'))
+				{
+					$temp = explode('?',$res["link"]);
+					$res["link"] = $temp[0];
+				}
+				
 				$rssfeed .= '<item>';
 				$rssfeed .= '<date>'.$res['date'].'</date>';
 				$rssfeed .= '<title>'.$res['title'].'</title>';
