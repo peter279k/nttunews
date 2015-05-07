@@ -126,8 +126,8 @@
 				
 				$rssfeed .= '<item>';
 				$rssfeed .= '<date>'.$res['date'].'</date>';
-				$rssfeed .= '<title>'.$res['title'].'</title>';
-				$rssfeed .= '<link>'.$res['link'].'</link>';
+				$rssfeed .= '<title><![CDATA['.$res['title'].']]></title>';
+				$rssfeed .= '<link><![CDATA['.$res['link'].']]></link>';
 				$rssfeed .= '</item>';
 			}
 			
