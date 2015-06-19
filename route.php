@@ -14,7 +14,7 @@
 	$app -> run();
 	
 	/*
-		create procedure name search_table and input the table name string to query
+		create procedure name get_news and input the table name string to query
 		the right tables.
 		
 		create procedure name search_record and input the table name,publish_date string to query 
@@ -34,7 +34,7 @@
 			$response['data'] = 'cannot link db.';
 		else
 		{
-			$stmt = $link_db -> prepare('CALL search_table(:table_name)'); //CALL procedure_name
+			$stmt = $link_db -> prepare('CALL get_news(:table_name)'); //CALL procedure_name
 			$stmt -> execute(array(":table_name"=>$table_name));
 			
 			$res_count = 0;
