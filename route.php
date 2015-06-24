@@ -124,9 +124,13 @@
 			$stmt = $link_db -> prepare("CALL rss_service(:table_name)");
 			$stmt -> execute(array(":table_name"=>$table_name));
 			
+			$check = true;
 			while($res=$stmt->fetch())
 			{
-				if(stristr($res["link"],'?') && (!stristr($res["link"], 'lic.nttu.edu.tw') || !stristr($res["link"], 'lib.nttu.edu.tw')))
+				if(stristr($res["link"], 'lic.nttu.edu.tw') || stristr($res["link"], 'lib.nttu.edu.tw'))
+					$check = false;
+				
+				if(stristr($res["link"],'?') && $check)
 				{
 					$temp = explode('?',$res["link"]);
 					$res["link"] = $temp[0];
@@ -137,6 +141,8 @@
 				$rssfeed .= '<title><![CDATA['.$res['title'].']]></title>';
 				$rssfeed .= '<link><![CDATA['.$res['link'].']]></link>';
 				$rssfeed .= '</item>';
+				
+				$check = true;
 			}
 			
 			$rssfeed .= '</channel>';
