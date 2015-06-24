@@ -43,7 +43,11 @@
 			{
 				$result[$res_count]["date"] = $res["date"];
 				$result[$res_count]["title"] = $res["title"];
-				if(stristr($res["link"],'?'))
+				if(stristr($res["link"], 'lic.nttu.edu.tw') || stristr($res["link"], 'lib.nttu.edu.tw'))
+				{
+					$result[$res_count]["link"] = $res["link"];
+				}
+				else if(stristr($res["link"],'?'))
 				{
 					$temp = explode('?',$res["link"]);
 					$result[$res_count]["link"] = $temp[0];
@@ -83,7 +87,11 @@
 				{
 					$result[$res_count]["date"] = $res["date"];
 					$result[$res_count]["title"] = $res["title"];
-					if(stristr($res["link"],'?'))
+					if(stristr($res["link"], 'lic.nttu.edu.tw') || stristr($res["link"], 'lib.nttu.edu.tw'))
+					{
+						$result[$res_count]["link"] = $res["link"];
+					}
+					else if(stristr($res["link"],'?'))
 					{
 						$temp = explode('?',$res["link"]);
 						$result[$res_count]["link"] = $temp[0];
@@ -118,7 +126,7 @@
 			
 			while($res=$stmt->fetch())
 			{
-				if(stristr($res["link"],'?'))
+				if(stristr($res["link"],'?') && (!stristr($res["link"], 'lic.nttu.edu.tw') || !stristr($res["link"], 'lib.nttu.edu.tw')))
 				{
 					$temp = explode('?',$res["link"]);
 					$res["link"] = $temp[0];
